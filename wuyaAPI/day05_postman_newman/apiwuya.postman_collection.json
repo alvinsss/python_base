@@ -1,0 +1,383 @@
+{
+	"info": {
+		"_postman_id": "9558eaad-b4e6-f4b8-5721-b342430c9552",
+		"name": "apiwuya",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "post",
+			"item": [
+				{
+					"name": "http://ws.webxml.com.cn/WebServices/MobileCodeWS.asmx",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "text/xml"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\r\n  <soap:Body>\r\n    <getMobileCodeInfo xmlns=\"http://WebXml.com.cn/\">\r\n      <mobileCode>18610357007</mobileCode>\r\n      <userID></userID>\r\n    </getMobileCodeInfo>\r\n  </soap:Body>\r\n</soap:Envelope>"
+						},
+						"url": {
+							"raw": "http://ws.webxml.com.cn/WebServices/MobileCodeWS.asmx",
+							"protocol": "http",
+							"host": [
+								"ws",
+								"webxml",
+								"com",
+								"cn"
+							],
+							"path": [
+								"WebServices",
+								"MobileCodeWS.asmx"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://ws.webxml.com.cn/WebServices/MobileCodeWS.asmx/getMobileCodeInfo",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "mobileCode",
+									"value": "18610357007",
+									"type": "text"
+								},
+								{
+									"key": "userID",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://ws.webxml.com.cn/WebServices/MobileCodeWS.asmx/getMobileCodeInfo",
+							"protocol": "http",
+							"host": [
+								"ws",
+								"webxml",
+								"com",
+								"cn"
+							],
+							"path": [
+								"WebServices",
+								"MobileCodeWS.asmx",
+								"getMobileCodeInfo"
+							]
+						},
+						"description": "http post"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "get",
+			"item": [
+				{
+					"name": "http://ws.webxml.com.cn/WebServices/MobileCodeWS.asmx/getMobileCodeInfo?mobileCode=18610357007&userID=",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://ws.webxml.com.cn/WebServices/MobileCodeWS.asmx/getMobileCodeInfo?mobileCode=18610357007&userID=",
+							"protocol": "http",
+							"host": [
+								"ws",
+								"webxml",
+								"com",
+								"cn"
+							],
+							"path": [
+								"WebServices",
+								"MobileCodeWS.asmx",
+								"getMobileCodeInfo"
+							],
+							"query": [
+								{
+									"key": "mobileCode",
+									"value": "18610357007"
+								},
+								{
+									"key": "userID",
+									"value": ""
+								}
+							]
+						},
+						"description": "http get"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "renren",
+			"item": [
+				{
+					"name": "http://www.renren.com/ajaxLogin/login?1=1&uniqueTimestamp=2019012129384",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "0bbd8b00-0464-43e3-9c04-f8caddaf10b1",
+								"exec": [
+									"var jsonData=JSON.parse(responseBody)",
+									"",
+									"",
+									"//对协议状态码做验证",
+									"",
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"//业务状态码",
+									"tests[\"返回的业务状态码是true的\"]=jsonData.code===true",
+									"",
+									"//获取优惠券的ID",
+									"postman.setEnvironmentVariable(\"homeUrl\",jsonData.homeUrl);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "13291812062",
+									"type": "text"
+								},
+								{
+									"key": "icode",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "origURL",
+									"value": "http%3A%2F%2Fwww.renren.com%2Fhome&domain=renren.com",
+									"type": "text"
+								},
+								{
+									"key": "key_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "captcha_type",
+									"value": "web_login",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "67ff1d5a13c7a9ee3eed708ca01778f210b4801731fa3a4baf1b8bceb643284d",
+									"type": "text"
+								},
+								{
+									"key": "rkey",
+									"value": "3907379e90e99c8cab502ca083179e25",
+									"type": "text"
+								},
+								{
+									"key": "f",
+									"value": "3907379e90e99c8cab502ca083179e25",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://www.renren.com/ajaxLogin/login?1=1&uniqueTimestamp=2019012129384",
+							"protocol": "http",
+							"host": [
+								"www",
+								"renren",
+								"com"
+							],
+							"path": [
+								"ajaxLogin",
+								"login"
+							],
+							"query": [
+								{
+									"key": "1",
+									"value": "1"
+								},
+								{
+									"key": "uniqueTimestamp",
+									"value": "2019012129384"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://www.renren.com/969379146/profile",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.26 Safari/537.36 Core/1.63.6788.400 QQBrowser/10.3.2727.400",
+								"type": "text"
+							},
+							{
+								"key": "Referer",
+								"value": "http://www.renren.com/969379146/profile",
+								"type": "text"
+							},
+							{
+								"key": "Cookie",
+								"value": "anonymid=jqmd7hwt-kjwst; depovince=BJ; _r01_=1; jebe_key=b0b3b542-bd7b-4929-9646-29c1b71a5cdd%7C634747ce01756d5f5ed975fde448e75c%7C1546868099415%7C1%7C1546868098361; ln_uact=13291812062; _de=0343CAE989A837F22A9C665963CA8EFD; l4pager=0; jebecookies=4f5ed18a-78cb-4613-903d-c9bee1d8be0d|||||; JSESSIONID=abcplhh2hDhG3cjZyiRGw; ick_login=b7a51040-4815-4446-a5f1-f686c1166916; p=f30b6973dbee290c24e10911f295c9a16; first_login_flag=1; ln_hurl=http://hdn.xnimg.cn/photos/hdn221/20190107/2205/h_main_HYuj_0c1b0001a3b9195a.jpg; t=cc9e50945b1182471ba9dcdbbd07355e6; societyguester=cc9e50945b1182471ba9dcdbbd07355e6; id=969379146; xnsid=d4de4d12; ver=7.0; loginfrom=null; wp_fold=0",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://www.renren.com/969379146/profile",
+							"protocol": "http",
+							"host": [
+								"www",
+								"renren",
+								"com"
+							],
+							"path": [
+								"969379146",
+								"profile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "修改主隐私",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "c23417da-7ad5-4e3e-a977-bd1a992dd108",
+								"exec": [
+									"var JsonData = JSON.parse(responseBody)",
+									"",
+									"/*验证协议状态码*/",
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"tests[\"业务状态码\"]=JsonData.code === 0",
+									"tests[\"msg值\"]     =JsonData.msg  === \"修改成功\""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json, text/javascript, */*; q=0.01",
+								"type": "text"
+							},
+							{
+								"key": "Origin",
+								"value": "http://www.renren.com",
+								"type": "text"
+							},
+							{
+								"key": "X-Requested-With",
+								"value": "XMLHttpRequest",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							},
+							{
+								"key": "Cookie",
+								"value": "anonymid=jqmd7hwt-kjwst; depovince=BJ; _r01_=1; jebe_key=b0b3b542-bd7b-4929-9646-29c1b71a5cdd%7C634747ce01756d5f5ed975fde448e75c%7C1546868099415%7C1%7C1546868098361; ln_uact=13291812062; _de=0343CAE989A837F22A9C665963CA8EFD; l4pager=0; jebecookies=4f5ed18a-78cb-4613-903d-c9bee1d8be0d|||||; JSESSIONID=abcplhh2hDhG3cjZyiRGw; ick_login=b7a51040-4815-4446-a5f1-f686c1166916; p=f30b6973dbee290c24e10911f295c9a16; first_login_flag=1; ln_hurl=http://hdn.xnimg.cn/photos/hdn221/20190107/2205/h_main_HYuj_0c1b0001a3b9195a.jpg; t=cc9e50945b1182471ba9dcdbbd07355e6; societyguester=cc9e50945b1182471ba9dcdbbd07355e6; id=969379146; xnsid=d4de4d12; ver=7.0; loginfrom=null; wp_fold=0",
+								"type": "text"
+							},
+							{
+								"key": "Referer",
+								"value": "http://www.renren.com/privacyhome.do",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "pType",
+									"value": "basicControl",
+									"type": "text"
+								},
+								{
+									"key": "pValue",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "requestToken",
+									"value": "2029399625",
+									"type": "text"
+								},
+								{
+									"key": "_rtk",
+									"value": "44b72ca3",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://www.renren.com/profile/privacy/saveOther",
+							"protocol": "http",
+							"host": [
+								"www",
+								"renren",
+								"com"
+							],
+							"path": [
+								"profile",
+								"privacy",
+								"saveOther"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
