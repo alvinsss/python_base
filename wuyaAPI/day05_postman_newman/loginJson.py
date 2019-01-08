@@ -16,41 +16,39 @@ import  json
 def getUsername():
     username = input("please input username:\n")
     return username
-
 def getPasswd():
     passwd = input("please input password:\n")
     return passwd
 
 def reg(username,passwd):
     temp = username+'|'+passwd
-    fd = open('login','w')
-    fd.write(temp)
+    # fd = open('login','w')
+    # fd.write(temp)
+    json.dump(temp,open('logindata','w'))
 
 def login (username,passwd):
-    fd = open('login','r')
-    for line in fd:
-        #字符串转列表
-        list1 = line.split('|')
-        # print(list1[0],list1[1])
-        if  list1[0] == username and list1[1]== passwd:
-            return  True
-        else:
-            return  False
+    loginData = str(json.load(open('logindata','r')))
+    list1 = loginData.split('|')
+    if list1[0] == username and list1[1] == passwd :
+        return  True
+    else:
+        return  False
 
 def info(username,passwd):
-    fd = open('login','r')
-    for line in fd:
-        list2 = line.split('|')
+    # fd = open('login','r')
+    # for line in fd:
+    # fd = open('logindata', 'r')
+    loginData = str(json.load(open('logindata', 'r')))
+    list2 = loginData.split('|')
     loginRes = login(username,passwd)
     if loginRes:
         print("恭喜",(list2[0])," 进入系统")
     else:
         print("login fail")
+
 def exit():
     import  sys
     sys.exit(1)
-
-
 
 def main():
     while True:
@@ -69,8 +67,8 @@ def main():
         else:
             print("选项不存在,请重新输入！")
 
-# if __name__ == '__main__':
-# #     main()
+if __name__ == '__main__':
+    main()
 
 # name = 'alvin'
 # def f1():
@@ -78,6 +76,6 @@ def main():
 #     name = 'hailin'
 #     print( name)
 # f1()
-f = json.dump("alvin",open('logindata','w'))
-f1 = json.load(open('logindata','r'))
-print(f1)
+# f = json.dump("alvin",open('logindata','w'))
+# f1 = json.load(open('logindata','r'))
+# print(f,type(f))
