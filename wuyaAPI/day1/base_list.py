@@ -35,3 +35,26 @@ list2=['admin','alvin']
 from selenium.webdriver.common.alert import Alert
 # print(dir(Alert))
 # print(help(type(Alert)))
+str1="abcd312"
+str2="acb3d12"
+
+def comparison(a,b):
+    ib=0
+    for ia in range(len(a)):
+        if ord(a[ia:ia+1])-ord(b[ib:ib+1])==0:
+            ib=ib+1
+            if ib==len(b):
+                print('a and b are equall')
+        else:
+            print('a and b are not equall')
+            break
+
+
+getFin1 = comparison(str1,str2)
+# getFin2 = findStrin(str2,str1)
+print(getFin1)
+
+str1='1'
+for i in range(len(str1)):
+     print  ((ord(str1[i])))
+     # print  (chr(ord(str1[i])-1))
