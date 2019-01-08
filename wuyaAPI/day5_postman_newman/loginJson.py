@@ -62,9 +62,20 @@ def exit():
 def main():
     while True:
         try:
-            t = int(input('选项1、注册 2、登录 3、退出  请输入：'))
+            t = input('选项1、注册 2、登录 3、退出  请输入：')
+                #判断输入是否浮点数据
+            if isinstance(t,float):
+                t = int(t)
+            elif isinstance(t,str):
+                if len(t) == 1:
+                    t= ord(t)
+                else:
+                    #第个字符处理成数字
+                    t = int(ord(list(t)[0]))
+
         except Exception as e:
             print(e.args)
+
         else:
             if t == 1:
                 username = getUsername()
