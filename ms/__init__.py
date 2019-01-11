@@ -2,8 +2,6 @@
 #-*- coding:utf-8 _*-
 """
 @author:alvin
-@file: f1.py
-@time: 2019/01/10
+@file: __init__.py.py
+@time: 2019/01/11
 """
-import  requests
-
