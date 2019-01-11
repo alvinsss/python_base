@@ -13,4 +13,6 @@ print(int(t.time()))
 print(t.localtime(t.time()))
 #获取时分秒
 print(t.strftime("%y-%m-%d %H:%M:%S",t.localtime()))
+now = t.strftime("%Y-%m-%d-%H_%M_%S", t.localtime(t.time()))
+print (now)
 t.sleep(1)
