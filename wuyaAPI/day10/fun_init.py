@@ -6,13 +6,16 @@
 @time: 2019/01/12
 """
 import  unittest
-from selenium import  webdriver
+from   selenium import  webdriver
+
 class InitENV (unittest.TestCase):
     def setUp(self):
-        self.dr = webdriver.Firefox()
+        self.dr = webdriver.Chrome()
         self.dr.maximize_window()
-        self.dr.implicitly_wait()
-        self.dr.get("https://www.baidu.com")
-
+        self.dr.implicitly_wait(3)
+        self.dr.get("https://www.sogou.com")
+        print("setUp")
     def tearDown(self):
         self.dr.quit()
+
+
