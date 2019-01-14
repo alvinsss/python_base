@@ -8,7 +8,7 @@ def search():
     cursor = conn.cursor()
     exec_sql = cursor.execute("SELECT * from user")
     exec_data = cursor.fetchall()
-    # print(exec_data)
+    print(exec_data)
     cursor.close()
     conn.close
     return  exec_data
