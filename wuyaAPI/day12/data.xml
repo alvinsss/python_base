@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<information>
+  <yan>学海无涯苦作舟</yan>
+  <template>QA_API_Template</template>
+  <WuYA nick="无涯" age="18" sex="boy" address="xian"></WuYA>
+  <dictionary>
+    <item id="WrapText">Toggle Text Wrap</item>
+    <item id="rawTestResponseLabel">Test Response</item>
+  </dictionary>
+</information>
